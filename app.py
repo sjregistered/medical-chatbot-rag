@@ -97,19 +97,19 @@ def initialize_pipeline():
     logger.info("Step 6: Creating chat orchestrator...")
     orchestrator = ChatOrchestrator(vector_store=vector_store, top_k=5)
 
-    # Step 7: Warm up the LLM so the first request is fast (non-fatal)
-    try:
-        logger.info("Step 7: Loading LLM...")
-        from src.llm import get_pipeline
-        get_pipeline()
-    except Exception as e:
-        logger.warning(f"LLM failed to load ({e}); responses will use retrieval fallback.")
-    
     from src import gemini_client
     if gemini_client.is_available():
         logger.info(f"Gemini enabled (model={gemini_client.model_name()}) – multimodal answers ON")
+        logger.info("Skipping local LLM (flan-t5) memory load since Gemini will be used.")
     else:
         logger.info("No GEMINI_API_KEY set – using local text-only model (images need Gemini)")
+        # Step 7: Warm up the LLM so the first request is fast (non-fatal)
+        try:
+            logger.info("Step 7: Loading local fallback LLM (flan-t5)...")
+            from src.llm import get_pipeline
+            get_pipeline()
+        except Exception as e:
+            logger.warning(f"LLM failed to load ({e}); responses will use retrieval fallback.")
     
     logger.info("=" * 60)
     logger.info("Medical Chatbot RAG Pipeline READY")
