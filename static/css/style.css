@@ -95,6 +95,7 @@ body {
     line-height: 1.6;
     overflow: hidden;
     height: 100vh;
+    height: 100dvh;
     width: 100vw;
 }
 
@@ -102,8 +103,13 @@ body {
 .app-container {
     display: flex;
     height: 100vh;
+    height: 100dvh;
     width: 100vw;
     overflow: hidden;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
 }
 
 /* ─── Sidebar ─── */
@@ -858,6 +864,44 @@ body {
     
     .chip {
         text-align: center;
+    }
+    
+    /* Mobile Header Fixes */
+    .header-info {
+        min-width: 0;
+    }
+    .header-info h1 {
+        font-size: var(--font-size-md);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .header-subtitle {
+        display: none;
+    }
+    .engine-badge {
+        max-width: 80px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 5px 8px;
+    }
+    
+    /* Mobile Input Bar Fixes */
+    .input-wrapper {
+        flex-wrap: wrap;
+    }
+    .upload-controls {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-subtle);
+        padding-right: 0;
+        padding-bottom: var(--space-xs);
+        margin-bottom: var(--space-xs);
+        justify-content: space-between;
+    }
+    .upload-kind {
+        max-width: none;
+        flex: 1;
     }
 }
 
