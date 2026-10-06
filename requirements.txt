@@ -5,5 +5,13 @@ transformers>=4.36.0
 torch>=2.1.0
 chromadb>=0.4.22
 numpy>=1.24.0
+# Multimodal AI (images, PDFs, smarter answers) – used when GEMINI_API_KEY is set
+google-genai>=1.0.0
+# File understanding
+pypdf>=4.0.0
+pandas>=2.0.0
+openpyxl>=3.1.0
+pillow>=10.0.0
 # Optional – only needed if PINECONE_API_KEY is set (otherwise Chroma is used)
 # pinecone>=5.0.0
+gunicorn>=21.2.0
