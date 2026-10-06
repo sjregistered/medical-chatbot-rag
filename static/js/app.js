@@ -467,7 +467,9 @@
 
     // ─── Typing Indicator ───
 
-    function showTypingIndicator(label) {
+    let typingInterval = null;
+
+    function showTypingIndicator(customLabel) {
         let indicator = document.querySelector('.typing-indicator');
         if (!indicator) {
             indicator = document.createElement('div');
@@ -478,16 +480,42 @@
                     <div class="typing-dot"></div>
                     <div class="typing-dot"></div>
                     <div class="typing-dot"></div>
-                    ${label ? `<span class="typing-label">${escapeHtml(label)}</span>` : ''}
+                    <span class="typing-label">${customLabel ? escapeHtml(customLabel) : 'Analyzing query...'}</span>
                 </div>
             `;
             elements.messagesContainer.appendChild(indicator);
         }
         indicator.classList.add('visible');
         scrollToBottom();
+
+        if (typingInterval) clearInterval(typingInterval);
+        
+        const steps = customLabel ? [
+            customLabel,
+            "Extracting context...",
+            "Processing with Gemini Vision...",
+            "Synthesizing insights..."
+        ] : [
+            "Analyzing medical query...",
+            "Searching knowledge base...",
+            "Retrieving clinical data...",
+            "Synthesizing medical response..."
+        ];
+        
+        let stepIndex = 0;
+        const labelEl = indicator.querySelector('.typing-label');
+        
+        typingInterval = setInterval(() => {
+            stepIndex = (stepIndex + 1) % steps.length;
+            if (labelEl) labelEl.textContent = steps[stepIndex];
+        }, 1800);
     }
 
     function hideTypingIndicator() {
+        if (typingInterval) {
+            clearInterval(typingInterval);
+            typingInterval = null;
+        }
         const indicator = document.querySelector('.typing-indicator');
         if (indicator) {
             indicator.classList.remove('visible');
