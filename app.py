@@ -215,13 +215,14 @@ def status():
 
 # ─── Main ───
 
+# Initialize pipeline globally so it runs for WSGI servers like Gunicorn
+try:
+    initialize_pipeline()
+except Exception as e:
+    # Keep the server up so the UI loads and /status reports the problem
+    logger.exception(f"Pipeline initialization failed: {e}")
+
 if __name__ == "__main__":
-    try:
-        initialize_pipeline()
-    except Exception as e:
-        # Keep the server up so the UI loads and /status reports the problem
-        logger.exception(f"Pipeline initialization failed: {e}")
-    
     port = int(os.environ.get("PORT", 5050))
     debug = os.environ.get("FLASK_DEBUG", "false").lower() == "true"
     
