@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Medical Chatbot – AI-powered medical knowledge assistant using RAG pipeline with vector database retrieval.">
+    <title>Medical Chatbot – AI Health Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">MedBot</span>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+
+            <button class="new-chat-btn" id="newChatBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+                New Conversation
+            </button>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-section-title">Chat History</h3>
+                <div class="chat-history-list" id="chatHistoryList">
+                    <div class="empty-history">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                        <p>No conversations yet</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="status-indicator" id="statusIndicator">
+                    <div class="status-dot"></div>
+                    <span class="status-text">Connecting...</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-main">
+            <!-- Header -->
+            <header class="chat-header">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+                <div class="header-info">
+                    <h1>Medical AI Assistant</h1>
+                    <p class="header-subtitle">Powered by RAG Pipeline &amp; Vector Database</p>
+                </div>
+                <div class="header-actions">
+                    <button class="header-btn" id="clearChatBtn" title="Clear conversation">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                        </svg>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Messages Area -->
+            <div class="messages-container" id="messagesContainer">
+                <!-- Welcome Message -->
+                <div class="welcome-screen" id="welcomeScreen">
+                    <div class="welcome-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <h2>Welcome to Medical AI Assistant</h2>
+                    <p>Ask me questions about medical conditions, symptoms, treatments, and medications. I'll search through our medical knowledge base to provide accurate, context-aware answers.</p>
+                    <div class="suggestion-chips">
+                        <button class="chip" data-query="What are the symptoms and treatment options for hypertension?">Hypertension treatment</button>
+                        <button class="chip" data-query="How is Type 2 diabetes diagnosed and managed?">Diabetes management</button>
+                        <button class="chip" data-query="What medications are used to treat asthma?">Asthma medications</button>
+                        <button class="chip" data-query="What are the symptoms of iron deficiency anemia?">Anemia symptoms</button>
+                        <button class="chip" data-query="How is depression treated?">Depression treatment</button>
+                        <button class="chip" data-query="What are the different types of anxiety disorders?">Anxiety disorders</button>
+                    </div>
+                    <p class="disclaimer">⚕️ This chatbot provides educational information only. Always consult a healthcare professional for medical advice.</p>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-area">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="messageInput" 
+                        placeholder="Ask a medical question..." 
+                        rows="1"
+                        maxlength="2000"
+                        aria-label="Type your medical question"
+                    ></textarea>
+                    <button class="send-btn" id="sendBtn" disabled aria-label="Send message">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                        </svg>
+                    </button>
+                </div>
+                <p class="input-footer">Medical AI may produce inaccurate information. Verify critical details with a professional.</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+MEDICAL KNOWLEDGE CORPUS
+========================
+Source: Sample entries adapted from The Gale Encyclopedia of Medicine and public medical references.
+Purpose: Educational chatbot training data for RTB Cycle 16 project.
+
+---
+
+HYPERTENSION (HIGH BLOOD PRESSURE)
+
+Hypertension is a chronic medical condition in which the blood pressure in the arteries is persistently elevated. Blood pressure is expressed by two measurements, the systolic and diastolic pressures, which are the maximum and minimum pressures, respectively. Normal blood pressure at rest is within the range of 100-140 millimeters mercury (mmHg) systolic and 60-90 mmHg diastolic.
+
+Hypertension is classified as either primary (essential) hypertension or secondary hypertension. About 90-95% of cases are primary, defined as high blood pressure due to nonspecific lifestyle and genetic factors. Lifestyle factors that increase the risk include excess salt in the diet, excess body weight, smoking, and alcohol use.
+
+Symptoms of hypertension are often absent. When symptoms do occur, they may include headaches, shortness of breath, dizziness, chest pain, palpitations of the heart, and nosebleeds. Hypertension is a major risk factor for stroke, heart failure, coronary artery disease, and chronic kidney disease.
+
+Treatment includes lifestyle modifications such as dietary changes (DASH diet), regular exercise, weight reduction, and stress management. Medications commonly prescribed include ACE inhibitors (lisinopril, enalapril), ARBs (losartan, valsartan), calcium channel blockers (amlodipine), diuretics (hydrochlorothiazide), and beta-blockers (metoprolol, atenolol).
+
+Diagnosis typically involves multiple blood pressure readings taken on separate occasions. Ambulatory blood pressure monitoring and home blood pressure monitoring can provide additional data. Laboratory tests may include blood tests for kidney function, cholesterol, and blood sugar levels.
+
+---
+
+DIABETES MELLITUS
+
+Diabetes mellitus is a group of metabolic diseases characterized by high blood sugar levels over a prolonged period. Symptoms of high blood sugar include frequent urination (polyuria), increased thirst (polydipsia), and increased hunger (polyphagia). If left untreated, diabetes can cause many complications.
+
+Type 1 diabetes results from the pancreas's failure to produce enough insulin due to autoimmune destruction of beta cells. This form was previously referred to as insulin-dependent diabetes mellitus (IDDM) or juvenile diabetes. Type 1 diabetes typically presents in childhood or adolescence.
+
+Type 2 diabetes begins with insulin resistance, a condition in which cells fail to respond to insulin properly. As the disease progresses, a lack of insulin may also develop. This form was previously referred to as non-insulin-dependent diabetes mellitus (NIDDM) or adult-onset diabetes. The most common cause is a combination of excessive body weight and insufficient exercise.
+
+Gestational diabetes is the third main form and occurs when pregnant women without a previous history of diabetes develop high blood sugar levels.
+
+Complications of diabetes include diabetic retinopathy (eye damage), diabetic nephropathy (kidney damage), diabetic neuropathy (nerve damage), cardiovascular disease, and diabetic foot ulcers. Long-term complications are related to damage to blood vessels.
+
+Management involves maintaining blood sugar levels as close to normal as possible. Type 1 diabetes is managed with insulin injections. Type 2 diabetes may be treated with medications such as metformin, sulfonylureas, DPP-4 inhibitors (sitagliptin), GLP-1 receptor agonists (liraglutide), and SGLT2 inhibitors (empagliflozin). Lifestyle modifications including diet and exercise are fundamental.
+
+Monitoring involves regular hemoglobin A1c (HbA1c) testing, which measures average blood sugar over 2-3 months. A target HbA1c of less than 7% is generally recommended for most adults.
+
+---
+
+ASTHMA
+
+Asthma is a chronic inflammatory disease of the airways characterized by reversible airflow obstruction, bronchial hyperresponsiveness, and an underlying inflammation. Common symptoms include episodes of wheezing, coughing, chest tightness, and shortness of breath.
+
+Asthma is thought to be caused by a combination of genetic and environmental factors. Environmental factors include exposure to air pollution, allergens (dust mites, pet dander, pollen, mold), respiratory infections, and exercise. Occupational asthma may be triggered by workplace irritants.
+
+Diagnosis is based on the pattern of symptoms, response to therapy over time, and lung function testing using spirometry. Spirometry measures the forced expiratory volume in one second (FEV1) and forced vital capacity (FVC). A reduced FEV1/FVC ratio indicates airflow obstruction.
+
+Treatment involves two main categories: quick-relief medications and long-term control medications. Quick-relief (rescue) medications include short-acting beta-agonists (SABA) such as albuterol (salbutamol). Long-term control medications include inhaled corticosteroids (ICS) such as fluticasone, budesonide, and beclomethasone; long-acting beta-agonists (LABA) such as salmeterol and formoterol; leukotriene modifiers such as montelukast; and biologic therapies for severe asthma such as omalizumab (anti-IgE).
+
+Asthma action plans are important for managing the condition and should include steps for daily management, recognizing worsening symptoms, and knowing when to seek emergency care. Peak flow monitoring can help track asthma control.
+
+---
+
+PNEUMONIA
+
+Pneumonia is an inflammatory condition of the lung affecting primarily the small air sacs known as alveoli. Typical signs and symptoms include a varying combination of productive or dry cough, chest pain, fever, and difficulty breathing. The severity of pneumonia is variable.
+
+Pneumonia is usually caused by infection with viruses or bacteria, and less commonly by other microorganisms. Risk factors include other lung diseases such as cystic fibrosis and COPD, smoking, dementia, stroke, immunosuppression, and advanced age.
+
+Community-acquired pneumonia (CAP) is the most common type. Hospital-acquired pneumonia (HAP) occurs 48 hours or more after hospital admission. Ventilator-associated pneumonia (VAP) is a subtype of HAP.
+
+Common bacterial causes include Streptococcus pneumoniae (most common), Haemophilus influenzae, Mycoplasma pneumoniae, and Legionella pneumophila. Viral causes include influenza virus, respiratory syncytial virus (RSV), and SARS-CoV-2.
+
+Diagnosis involves chest X-ray, complete blood count, sputum culture, blood cultures, and pulse oximetry. CT scan may be used for complicated cases.
+
+Treatment depends on the cause. Bacterial pneumonia is treated with antibiotics such as amoxicillin, azithromycin, or fluoroquinolones. Viral pneumonia may be treated with antiviral medications. Severe cases may require hospitalization, intravenous antibiotics, oxygen therapy, or mechanical ventilation.
+
+Prevention includes vaccination (pneumococcal vaccine, influenza vaccine), good hygiene, smoking cessation, and maintaining a healthy immune system.
+
+---
+
+MIGRAINE
+
+Migraine is a primary headache disorder characterized by recurrent episodes of moderate to severe headache, typically on one side of the head, often accompanied by nausea, vomiting, and sensitivity to light (photophobia) and sound (phonophobia). Migraines can last from 4 to 72 hours.
+
+Migraine with aura involves neurological symptoms that usually develop gradually over 5-20 minutes before the headache. Aura symptoms include visual disturbances (flashing lights, zigzag lines, blind spots), sensory symptoms (tingling, numbness), and speech difficulties.
+
+Triggers may include hormonal changes, certain foods (aged cheese, chocolate, alcohol, caffeine), stress, sleep changes, weather changes, bright lights, strong smells, and physical exertion.
+
+Treatment includes acute (abortive) therapy and preventive therapy. Acute treatments include triptans (sumatriptan, rizatriptan), NSAIDs (ibuprofen, naproxen), acetaminophen, ergotamine, and anti-emetics. Newer treatments include CGRP receptor antagonists (gepants) such as ubrogepant and rimegepant.
+
+Preventive treatments are considered when migraines occur frequently (4+ per month) or significantly impact quality of life. Options include beta-blockers (propranolol), antidepressants (amitriptyline), anticonvulsants (topiramate, valproic acid), and CGRP monoclonal antibodies (erenumab, fremanezumab, galcanezumab).
+
+Non-pharmacological approaches include biofeedback, cognitive behavioral therapy, relaxation techniques, regular exercise, adequate sleep, and trigger avoidance.
+
+---
+
+ARTHRITIS
+
+Arthritis is a term used to describe inflammation of one or more joints. There are over 100 different types of arthritis, with the two most common being osteoarthritis (OA) and rheumatoid arthritis (RA).
+
+Osteoarthritis is a degenerative joint disease caused by the breakdown of cartilage. It most commonly affects the knees, hips, hands, and spine. Risk factors include age, obesity, joint injuries, repetitive stress, and genetics. Symptoms include joint pain, stiffness (especially morning stiffness lasting less than 30 minutes), reduced range of motion, and crepitus.
+
+Rheumatoid arthritis is an autoimmune disease in which the immune system attacks the synovial membrane lining the joints. It typically affects small joints of the hands and feet symmetrically. Symptoms include joint pain, swelling, morning stiffness lasting more than 30 minutes, fatigue, and systemic inflammation. RA can also affect other organs including the lungs, heart, and eyes.
+
+Diagnosis involves physical examination, blood tests (rheumatoid factor, anti-CCP antibodies, ESR, CRP), and imaging (X-ray, ultrasound, MRI).
+
+Treatment for OA includes weight management, physical therapy, exercise, NSAIDs (ibuprofen, naproxen), acetaminophen, corticosteroid injections, hyaluronic acid injections, and in severe cases, joint replacement surgery.
+
+Treatment for RA includes disease-modifying antirheumatic drugs (DMARDs) such as methotrexate, sulfasalazine, and hydroxychloroquine; biologic agents such as TNF inhibitors (adalimumab, etanercept, infliximab), IL-6 inhibitors (tocilizumab), and JAK inhibitors (tofacitinib, baricitinib).
+
+---
+
+DEPRESSION
+
+Depression (major depressive disorder) is a common and serious mood disorder that affects how a person feels, thinks, and handles daily activities. Symptoms must be present for at least two weeks for a diagnosis.
+
+Symptoms include persistent sad, anxious, or empty mood; feelings of hopelessness or pessimism; irritability; feelings of guilt, worthlessness, or helplessness; loss of interest or pleasure in hobbies and activities; decreased energy or fatigue; difficulty concentrating, remembering, or making decisions; insomnia or oversleeping; appetite changes and unintended weight changes; thoughts of death or suicide; and physical symptoms such as aches, pains, headaches, or digestive problems.
+
+Risk factors include personal or family history of depression, major life changes or trauma, certain medications, other medical conditions, and substance abuse.
+
+Treatment typically involves a combination of psychotherapy and medication. Antidepressant medications include selective serotonin reuptake inhibitors (SSRIs) such as fluoxetine, sertraline, and escitalopram; serotonin-norepinephrine reuptake inhibitors (SNRIs) such as venlafaxine and duloxetine; tricyclic antidepressants (TCAs); and atypical antidepressants such as bupropion and mirtazapine.
+
+Psychotherapy approaches include cognitive behavioral therapy (CBT), interpersonal therapy (IPT), psychodynamic therapy, and behavioral activation.
+
+Other treatments include electroconvulsive therapy (ECT) for treatment-resistant depression, transcranial magnetic stimulation (TMS), light therapy for seasonal affective disorder, and regular physical exercise.
+
+---
+
+INFLUENZA (FLU)
+
+Influenza is a viral infection that attacks the respiratory system — the nose, throat, and lungs. It is caused by influenza viruses, primarily types A and B. Influenza is different from the common cold and can lead to serious complications.
+
+Symptoms typically appear suddenly and include fever (usually 100°F to 104°F), chills, muscle aches, headache, fatigue, cough, sore throat, runny or stuffy nose, and sometimes vomiting and diarrhea (more common in children).
+
+Complications include pneumonia (viral or secondary bacterial), myocarditis, encephalitis, rhabdomyolysis, and exacerbation of chronic conditions. Groups at high risk for complications include adults over 65, children under 5, pregnant women, and people with chronic health conditions.
+
+Diagnosis can be confirmed with rapid influenza diagnostic tests (RIDTs), rapid molecular assays, and viral culture. During flu season, clinical diagnosis is often sufficient.
+
+Treatment includes antiviral medications that are most effective when started within 48 hours of symptom onset. Options include oseltamivir (Tamiflu), zanamivir (Relenza), baloxavir marboxil (Xofluza), and peramivir (Rapivab). Supportive care includes rest, fluids, and over-the-counter medications for symptom relief.
+
+Prevention is primarily through annual influenza vaccination. The CDC recommends annual flu vaccination for everyone 6 months and older. Additional preventive measures include hand hygiene, respiratory etiquette, and avoiding close contact with sick individuals.
+
+---
+
+ALLERGIES
+
+An allergy is an immune system response to a foreign substance (allergen) that is not typically harmful to the body. Common allergens include pollen, dust mites, mold spores, pet dander, food (nuts, shellfish, eggs, milk), insect stings, and medications (penicillin, aspirin).
+
+Allergic rhinitis (hay fever) causes sneezing, runny nose, nasal congestion, and itchy eyes. It affects approximately 10-30% of the global population. Seasonal allergic rhinitis is triggered by pollen, while perennial allergic rhinitis is triggered by indoor allergens.
+
+Food allergies affect approximately 6-8% of children and 2-3% of adults. Common food allergens include peanuts, tree nuts, milk, eggs, wheat, soy, fish, and shellfish. Severe food allergies can cause anaphylaxis.
+
+Anaphylaxis is a severe, potentially life-threatening allergic reaction that can occur within seconds or minutes of exposure. Symptoms include skin reactions (hives, flushing), rapid pulse, nausea, vomiting, airway constriction, swelling of the tongue and throat, and drop in blood pressure. Treatment requires immediate administration of epinephrine (EpiPen) and emergency medical care.
+
+Diagnosis includes skin prick tests, blood tests (specific IgE), patch tests, and oral food challenges. A detailed medical history is essential.
+
+Treatment includes allergen avoidance, antihistamines (cetirizine, loratadine, fexofenadine), nasal corticosteroids (fluticasone, mometasone), decongestants, leukotriene modifiers (montelukast), and allergen immunotherapy (allergy shots or sublingual tablets).
+
+---
+
+CHRONIC KIDNEY DISEASE
+
+Chronic kidney disease (CKD) is a progressive loss of kidney function over months or years. Each kidney has about one million tiny filters called nephrons. If nephrons are damaged, they stop working. The kidneys can compensate for lost function, so symptoms may not appear until considerable damage has occurred.
+
+CKD is classified into five stages based on glomerular filtration rate (GFR): Stage 1 (GFR ≥90, kidney damage with normal function), Stage 2 (GFR 60-89, mild reduction), Stage 3a (GFR 45-59, mild to moderate reduction), Stage 3b (GFR 30-44, moderate to severe reduction), Stage 4 (GFR 15-29, severe reduction), Stage 5 (GFR <15, kidney failure/end-stage renal disease).
+
+Common causes include diabetes mellitus (leading cause), hypertension, glomerulonephritis, polycystic kidney disease, prolonged obstruction of the urinary tract, and recurrent kidney infections.
+
+Symptoms in advanced stages include nausea, vomiting, loss of appetite, fatigue, sleep problems, changes in urine output, decreased mental sharpness, muscle twitches, swelling of feet and ankles, persistent itching, chest pain, and shortness of breath.
+
+Diagnosis involves blood tests (serum creatinine, BUN, GFR calculation), urine tests (albumin-to-creatinine ratio, urinalysis), imaging (ultrasound, CT scan), and sometimes kidney biopsy.
+
+Treatment focuses on slowing progression and managing complications. This includes controlling blood pressure (ACE inhibitors or ARBs are preferred), managing blood sugar in diabetics, dietary modifications (low sodium, limited protein, phosphorus and potassium restriction), medications for anemia (erythropoiesis-stimulating agents), and managing mineral and bone disorder. End-stage kidney disease requires dialysis (hemodialysis or peritoneal dialysis) or kidney transplantation.
+
+---
+
+ANXIETY DISORDERS
+
+Anxiety disorders are the most common mental health conditions, affecting approximately 30% of adults at some point in their lives. They involve excessive fear, worry, or anxiety that interferes with daily functioning.
+
+Generalized Anxiety Disorder (GAD) involves persistent, excessive worry about various aspects of life for at least 6 months. Physical symptoms include restlessness, fatigue, difficulty concentrating, irritability, muscle tension, and sleep disturbance.
+
+Panic Disorder involves recurrent unexpected panic attacks — sudden periods of intense fear that peak within minutes. Symptoms include palpitations, sweating, trembling, shortness of breath, chest pain, nausea, dizziness, and fear of losing control or dying.
+
+Social Anxiety Disorder involves significant anxiety and discomfort about being embarrassed, humiliated, or judged in social interactions. It goes beyond normal shyness.
+
+Specific Phobias involve excessive fear of specific objects or situations that is out of proportion to the actual danger.
+
+Treatment includes psychotherapy (especially CBT), medications, and self-management strategies. Medications include SSRIs (sertraline, paroxetine, escitalopram), SNRIs (venlafaxine, duloxetine), buspirone, and benzodiazepines (for short-term use: alprazolam, clonazepam, lorazepam). Beta-blockers may help with physical symptoms of anxiety in specific situations.
+
+Self-management includes regular exercise, adequate sleep, stress management techniques, limiting caffeine and alcohol, and mindfulness or meditation practices.
+
+---
+
+IRON DEFICIENCY ANEMIA
+
+Iron deficiency anemia occurs when the body doesn't have enough iron to produce adequate amounts of hemoglobin. Hemoglobin is the protein in red blood cells that carries oxygen to the body's tissues.
+
+Causes include inadequate dietary intake, blood loss (heavy menstruation, gastrointestinal bleeding from ulcers, polyps, or cancer), malabsorption (celiac disease, inflammatory bowel disease, gastric bypass surgery), and increased iron requirements (pregnancy, rapid growth in children).
+
+Symptoms include fatigue, weakness, pale skin, shortness of breath, dizziness, cold hands and feet, brittle nails, headache, unusual cravings (pica) for non-nutritive substances like ice or starch, poor appetite, and restless legs syndrome.
+
+Diagnosis involves complete blood count (CBC) showing low hemoglobin and hematocrit, low MCV (microcytic anemia), peripheral blood smear, serum iron, ferritin (most sensitive marker), total iron-binding capacity (TIBC), and transferrin saturation. Ferritin levels below 30 ng/mL are generally indicative of iron deficiency.
+
+Treatment includes oral iron supplementation (ferrous sulfate, ferrous gluconate, ferrous fumarate) taken on an empty stomach with vitamin C to enhance absorption. Intravenous iron (iron sucrose, ferric carboxymaltose) may be needed for severe deficiency or malabsorption. Dietary sources of iron include red meat, poultry, fish, beans, lentils, fortified cereals, spinach, and tofu. Addressing the underlying cause of iron loss is essential.
