@@ -149,10 +149,7 @@ def _fallback_response(query: str, context_passages: List[str]) -> str:
     
     response = "Based on the available medical knowledge:\n\n"
     for i, passage in enumerate(context_passages[:3]):
-        # Take first 200 chars of each passage
-        snippet = passage[:200].strip()
-        if len(passage) > 200:
-            snippet += "..."
+        snippet = passage.strip()
         response += f"• {snippet}\n\n"
     
     response += (

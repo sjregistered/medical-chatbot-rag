@@ -15,6 +15,7 @@ from src.ingestion import load_medical_corpus, chunk_text, get_ingestion_stats
 from src.embeddings import generate_embeddings, get_embedding_dimension
 from src.vector_store import create_vector_store
 from src.chat import ChatOrchestrator
+from src.file_processor import process_upload, UploadError, MAX_UPLOAD_BYTES
 
 # ─── Configuration ───
 
@@ -29,6 +30,8 @@ logging.getLogger("httpx").setLevel(logging.WARNING)  # silence model-download c
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "dev-secret-key-change-in-prod")
+# Reject oversized uploads before reading them (+1 MB slack for form fields).
+app.config["MAX_CONTENT_LENGTH"] = MAX_UPLOAD_BYTES + 1024 * 1024
 
 # Global orchestrator instance
 orchestrator = None
@@ -102,6 +105,12 @@ def initialize_pipeline():
     except Exception as e:
         logger.warning(f"LLM failed to load ({e}); responses will use retrieval fallback.")
     
+    from src import gemini_client
+    if gemini_client.is_available():
+        logger.info(f"Gemini enabled (model={gemini_client.model_name()}) – multimodal answers ON")
+    else:
+        logger.info("No GEMINI_API_KEY set – using local text-only model (images need Gemini)")
+    
     logger.info("=" * 60)
     logger.info("Medical Chatbot RAG Pipeline READY")
     logger.info("=" * 60)
@@ -118,10 +127,12 @@ def index():
 @app.route("/chat", methods=["POST"])
 def chat():
     """
-    Handle chat messages.
+    Handle chat messages, optionally with an attached file.
     
-    Expects JSON: { "message": "user question" }
-    Returns JSON: { "response": "...", "sources": [...], "processing_time": ... }
+    Accepts either:
+      - JSON: { "message": "user question" }
+      - multipart/form-data: message=<text>, file=<upload>, kind=auto|image|pdf|data|text
+    Returns JSON: { "response", "sources", "basis", "engine", "attachment", "processing_time" }
     """
     if orchestrator is None:
         return jsonify({
@@ -130,24 +141,48 @@ def chat():
             "processing_time": 0
         }), 503
     
-    data = request.get_json(silent=True)
-    if not data or not isinstance(data.get("message"), str):
+    attachment = None
+    if request.content_type and request.content_type.startswith("multipart/form-data"):
+        user_message = (request.form.get("message") or "").strip()[:2000]
+        upload = request.files.get("file")
+        if upload and upload.filename:
+            try:
+                attachment = process_upload(
+                    filename=upload.filename,
+                    data=upload.read(),
+                    kind=request.form.get("kind", "auto"),
+                )
+            except UploadError as e:
+                return jsonify({"response": str(e), "sources": [], "processing_time": 0}), 400
+    else:
+        data = request.get_json(silent=True)
+        if not data or not isinstance(data.get("message"), str):
+            return jsonify({
+                "response": "Please provide a message.",
+                "sources": [],
+                "processing_time": 0
+            }), 400
+        user_message = data["message"].strip()[:2000]
+    
+    if not user_message and not attachment:
         return jsonify({
-            "response": "Please provide a message.",
+            "response": "Please enter a medical question or attach a file.",
             "sources": [],
             "processing_time": 0
         }), 400
     
-    user_message = data["message"].strip()[:2000]
-    if not user_message:
-        return jsonify({
-            "response": "Please enter a medical question.",
-            "sources": [],
-            "processing_time": 0
-        }), 400
-    
-    result = orchestrator.process_message(user_message)
+    result = orchestrator.process_message(user_message, attachment=attachment)
     return jsonify(result)
+
+
+@app.errorhandler(413)
+def too_large(_e):
+    """Return a JSON error (instead of an HTML page) for oversized uploads."""
+    return jsonify({
+        "response": "File is too large. Maximum size is 10 MB.",
+        "sources": [],
+        "processing_time": 0
+    }), 413
 
 
 @app.route("/history", methods=["GET"])
