@@ -635,7 +635,11 @@
     // ─── Sidebar ───
 
     function toggleSidebar() {
-        elements.sidebar.classList.toggle('collapsed');
+        if (window.innerWidth <= 768) {
+            toggleMobileSidebar();
+        } else {
+            elements.sidebar.classList.toggle('collapsed');
+        }
     }
 
     function toggleMobileSidebar() {
